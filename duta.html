@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duta Daerah - Representasi & Pengembangan Wilayah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Raleway:wght@600;800&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================== */
+        /* 0. VARIABLES & RESET               */
+        /* ================================== */
+        :root {
+            /* Strong & Vibrant Color Palette */
+            --color-primary: #e74c3c; /* Merah kuat - semangat */
+            --color-secondary: #2ecc71; /* Hijau terang - kemajuan */
+            --color-accent: #f39c12; /* Oranye - energi */
+            --color-dark: #2c3e50; /* Biru tua - kewibawaan */
+            --color-light: #ecf0f1; /* Putih kebiruan */
+            --color-gold: #f1c40f; /* Emas - prestasi */
+            --color-card: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #e74c3c, #c0392b);
+            --gradient-secondary: linear-gradient(135deg, #2ecc71, #27ae60);
+            --gradient-accent: linear-gradient(135deg, #f39c12, #d35400);
+            --gradient-dark: linear-gradient(135deg, #2c3e50, #34495e);
+            --gradient-gold: linear-gradient(135deg, #f1c40f, #f39c12);
+            
+            /* Font Variables */
+            --font-heading: 'Merriweather', serif;
+            --font-subheading: 'Raleway', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            overflow-x: hidden;
+        }
+
+        /* ================================== */
+        /* 1. ANIMATIONS ENERGETIK            */
+        /* ================================== */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes pulseStrong {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes shine {
+            0% { background-position: -200px 0; }
+            100% { background-position: calc(200px + 100%) 0; }
+        }
+
+        @keyframes floatFlag {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(2deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        @keyframes ribbonWave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        /* ================================== */
+        /* 2. HEADER & NAVIGASI               */
+        /* ================================== */
+        .main-header {
+            background: var(--color-dark);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-bottom: 4px solid var(--color-primary);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-subheading);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--color-primary);
+            font-size: 2rem;
+            animation: pulseStrong 2s infinite;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-family: var(--font-subheading);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::before {
+            left: 0;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: var(--color-primary);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: var(--color-accent);
+        }
+
+        /* ================================== */
+        /* 3. HERO SECTION                    */
+        /* ================================== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 5% 50px;
+            background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(231, 76, 60, 0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(46, 204, 113, 0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(243, 156, 18, 0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(52, 152, 219, 0.1) 75%);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-family: var(--font-subheading);
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: pulseStrong 2s infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title span {
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--color-primary);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: var(--font-subheading);
+            font-size: 0.9rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .flag-decoration {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10rem;
+            opacity: 0.1;
+            animation: floatFlag 6s ease-in-out infinite;
+        }
+
+        /* ================================== */
+        /* 4. PROFILE SECTION                 */
+        /* ================================== */
+        .profile-section {
+            padding: 100px 5%;
+            background: white;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--color-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image-wrapper:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .profile-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient-gold);
+            color: var(--color-dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: var(--font-subheading);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+
+        .profile-role {
+            color: var(--color-primary);
+            font-family: var(--font-subheading);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .profile-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .achievement-list i {
+            color: var(--color-secondary);
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* ================================== */
+        /* 5. MISSION SECTION                 */
+        /* ================================== */
+        .mission-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--color-dark);
+        }
+
+        .mission-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* ================================== */
+        /* 6. PROGRAMS SECTION                */
+        /* ================================== */
+        .programs-section {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 5px solid var(--color-primary);
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(231, 76, 60, 0.2);
+        }
+
+        .program-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* ================================== */
+        /* 7. REGION SECTION                  */
+        /* ================================== */
+        .region-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+            color: white;
+            position: relative;
+        }
+
+        .region-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .region-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .region-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .region-stat h4 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        /* ================================== */
+        /* 8. GALLERY SECTION                 */
+        /* ================================== */
+        .gallery-section {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* ================================== */
+        /* 9. CONTACT SECTION                 */
+        /* ================================== */
+        .contact-section {
+            padding: 100px 5%;
+            background: var(--color-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--color-primary);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(231, 76, 60, 0.2);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-dark);
+        }
+
+        .contact-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            color: var(--color-accent);
+        }
+
+        /* ================================== */
+        /* 10. FOOTER                         */
+        /* ================================== */
+        .main-footer {
+            background: var(--color-dark);
+            color: white;
+            padding: 80px 5% 40px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col-1 h3 {
+            font-family: var(--font-subheading);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col-1 h3 span {
+            color: var(--color-primary);
+        }
+
+        .footer-motto {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            border-left: 4px solid var(--color-primary);
+            padding-left: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-col-2 h4, .footer-col-3 h4 {
+            font-family: var(--font-subheading);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-col-2 ul {
+            list-style: none;
+        }
+
+        .footer-col-2 li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col-2 a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .footer-col-2 a:hover {
+            color: var(--color-primary);
+            padding-left: 10px;
+        }
+
+        .footer-col-3 p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: -10px;
+            right: 5%;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 30px;
+            transform: rotate(5deg);
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: ribbonWave 3s ease-in-out infinite;
+        }
+
+        /* ================================== */
+        /* 11. RESPONSIVE DESIGN              */
+        /* ================================== */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 3.5rem; }
+            .section-title { font-size: 2.5rem; }
+            .profile-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--color-dark);
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                border-top: 3px solid var(--color-primary);
+            }
+            .hero-title { font-size: 3rem; }
+            .hero-stats { flex-wrap: wrap; justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .footer-social { justify-content: center; }
+            .region-content { grid-template-columns: 1fr; }
+            .flag-decoration { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .profile-content h2 { font-size: 2rem; }
+            .mission-grid, .programs-grid { grid-template-columns: 1fr; }
+            .stat-item, .region-stat { min-width: 120px; padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+            .hero-badge { font-size: 0.9rem; padding: 8px 20px; }
+            .profile-card, .mission-card, .program-card, .contact-card { padding: 25px; }
+            .stat-number, .region-stat h4 { font-size: 2rem; }
+        }
+
+        /* ================================== */
+        /* 12. CUSTOM SCROLLBAR               */
+        /* ================================== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="nav-content">
+            <h1 class="logo">
+                <i class="fas fa-flag logo-icon"></i>
+                Duta<span style="color: var(--color-primary);">Daerah</span>
+            </h1>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#profile">Profil</a></li>
+                    <li><a href="#mission">Misi</a></li>
+                    <li><a href="#programs">Program</a></li>
+                    <li><a href="#region">Daerah</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg-pattern"></div>
+        <div class="flag-decoration">
+            <i class="fas fa-flag"></i>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">
+                <i class="fas fa-star"></i> Representasi Resmi
+            </span>
+            <h1 class="hero-title">
+                Duta <span>Daerah</span><br>
+                Penggerak Perubahan & Kemajuan
+            </h1>
+            <p class="hero-subtitle">
+                Sebagai perwakilan resmi daerah, saya berdedikasi untuk mempromosikan potensi, budaya, dan pembangunan wilayah kepada dunia. 
+                Bersama masyarakat, kita wujudkan daerah yang makmur dan berdaya saing.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Tahun Mengabdi</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Program Sukses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Event Nasional</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Penghargaan</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <h2 class="section-title">Profil Duta Daerah</h2>
+        <div class="profile-container">
+            <div class="profile-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Duta Daerah - Representasi Wilayah" class="profile-image">
+                <div class="profile-badge">
+                    <i class="fas fa-award"></i> Duta Terpilih 2024
+                </div>
+            </div>
+            <div class="profile-content">
+                <h2>Raden Bagus Pratama</h2>
+                <p class="profile-role">Duta Daerah Jawa Timur 2024-2027</p>
+                <p>
+                    Terpilih sebagai Duta Daerah Jawa Timur periode 2024-2027 melalui seleksi ketat yang melibatkan aspek kepemimpinan, 
+                    pengetahuan daerah, dan visi pembangunan. Dengan latar belakang pendidikan ekonomi pembangunan dan pengalaman di 
+                    berbagai organisasi kepemudaan, saya berkomitmen untuk menjadi jembatan antara pemerintah daerah dan masyarakat.
+                </p>
+                <p>
+                    Fokus utama saya adalah mempromosikan potensi ekonomi kreatif, pariwisata berkelanjutan, dan pelestarian budaya 
+                    daerah Jawa Timur kepada skala nasional maupun internasional.
+                </p>
+                <ul class="achievement-list">
+                    <li><i class="fas fa-check-circle"></i> Sarjana Ekonomi Pembangunan - Universitas Airlangga</li>
+                    <li><i class="fas fa-check-circle"></i> Pengurus Pusat Karang Taruna Nasional</li>
+                    <li><i class="fas fa-check-circle"></i> Delegasi Indonesia di ASEAN Youth Summit 2023</li>
+                    <li><i class="fas fa-check-circle"></i> Inisiator Program "Jatim Berdaya"</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <h2 class="section-title" style="color: white;">Misi & Visi</h2>
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Promosi Daerah</h3>
+                <p>Memperkenalkan potensi ekonomi, budaya, dan pariwisata daerah kepada masyarakat luas</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Pemberdayaan</h3>
+                <p>Mengembangkan kapasitas masyarakat khususnya generasi muda dalam berbagai sektor</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Jembatan Aspirasi</h3>
+                <p>Menjadi penghubung yang efektif antara masyarakat dan pemerintah daerah</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+        <h2 class="section-title">Program Unggulan</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Program Pendidikan" class="program-image">
+                <div class="program-content">
+                    <span class="program-badge">Pendidikan</span>
+                    <h3>Jatim Cerdas</h3>
+                    <p>Program beasiswa dan pendampingan pendidikan untuk pelajar berprestasi dari keluarga kurang mampu di seluruh Jawa Timur.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Program Ekonomi" class="program-image">
+                <div class="program-content">
+                    <span class="program-badge">Ekonomi</span>
+                    <h3>UMKM Berkembang</h3>
+                    <p>Pelatihan dan pendampingan usaha mikro, kecil, dan menengah dengan fokus pada digitalisasi dan pemasaran online.</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Program Lingkungan" class="program-image">
+                <div class="program-content">
+                    <span class="program-badge">Lingkungan</span>
+                    <h3>Jatim Hijau</h3>
+                    <p>Gerakan penanaman pohon dan pengelolaan sampah berkelanjutan di 38 kabupaten/kota se-Jawa Timur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Region Section -->
+    <section id="region" class="region-section">
+        <div class="ribbon">Kebanggaan Daerah</div>
+        <h2 class="section-title" style="color: white;">Jawa Timur</h2>
+        <div class="region-content">
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 20px;">Provinsi Terbesar Kedua di Indonesia</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                    Jawa Timur merupakan provinsi dengan kekayaan budaya yang luar biasa, dari Keraton Surakarta hingga tradisi 
+                    Tengger. Dengan ekonomi yang terus berkembang, Jawa Timur menjadi pusat industri, pertanian, dan pariwisata 
+                    yang vital bagi Indonesia.
+                </p>
+                <div class="region-stats">
+                    <div class="region-stat">
+                        <h4>38</h4>
+                        <p>Kabupaten/Kota</p>
+                    </div>
+                    <div class="region-stat">
+                        <h4>42M</h4>
+                        <p>Penduduk</p>
+                    </div>
+                    <div class="region-stat">
+                        <h4>47K</h4>
+                        <p>KM² Luas Wilayah</p>
+                    </div>
+                    <div class="region-stat">
+                        <h4>#2</h4>
+                        <p>Perekonomian Nasional</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Peta Jawa Timur" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title">Galeri Kegiatan</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Kegiatan Masyarakat" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h4>Silaturahmi dengan Masyarakat</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Event Kebudayaan" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h4>Festival Budaya Daerah</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Kunjungan Kerja" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h4>Kunjungan Kerja ke Desa</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Resmi</h3>
+                <a href="mailto:duta.jatim@jawatimur.go.id" class="contact-link">duta.jatim@jawatimur.go.id</a>
+                <p>Untuk urusan resmi dan undangan</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Kantor Sekretariat</h3>
+                <a href="tel:+62312345678" class="contact-link">(031) 234-5678</a>
+                <p>Senin - Jumat, 08:00 - 16:00 WIB</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Alamat Kantor</h3>
+                <p>Gedung Grahadi, Jl. Gubernur Suryo No. 15, Surabaya</p>
+                <a href="#" class="contact-link">Lihat Peta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col-1">
+                <h3>Duta <span>Jawa Timur</span></h3>
+                <p class="footer-motto">
+                    "Bersama masyarakat, untuk kemajuan daerah. Menjadi duta yang mendengar, memahami, dan bergerak untuk kesejahteraan bersama."
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="#profile">Profil Duta</a></li>
+                    <li><a href="#programs">Program Kerja</a></li>
+                    <li><a href="#region">Profil Daerah</a></li>
+                    <li><a href="#contact">Ajukan Kegiatan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-3">
+                <h4>Informasi</h4>
+                <p>© 2024 Duta Daerah Jawa Timur</p>
+                <p>Periode Jabatan: 2024-2027</p>
+                <p>SK Penetapan: 001/DD-JT/2024</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.5);">
+                    Website resmi Duta Daerah Jawa Timur
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Melayani dengan Hati • Membangun dengan Aksi • Menginspirasi dengan Prestasi</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.innerHTML = document.querySelector('.nav-links').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 6px 25px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+            }
+            
+            // Update active nav link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.nav-toggle').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.mission-card, .program-card, .contact-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+
+        // Set initial styles for animated elements
+        document.querySelectorAll('.mission-card, .program-card, .contact-card, .gallery-item').forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(30px)";
+            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Initial check
+        animateOnScroll();
+
+        // Stats counter animation
+        const statNumbers = document.querySelectorAll('.stat-number, .region-stat h4');
+        const heroSection = document.querySelector('.hero-section');
+        const regionSection = document.querySelector('.region-section');
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statNumbers.forEach(stat => {
+                        const targetText = stat.textContent;
+                        const target = parseInt(targetText.replace('+', '').replace('M', '').replace('K', ''));
+                        let current = 0;
+                        const increment = target / 30;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = targetText;
+                                clearInterval(timer);
+                            } else {
+                                const displayValue = Math.floor(current);
+                                if (targetText.includes('M')) {
+                                    stat.textContent = displayValue + 'M';
+                                } else if (targetText.includes('K')) {
+                                    stat.textContent = displayValue + 'K';
+                                } else if (targetText.includes('+')) {
+                                    stat.textContent = displayValue + '+';
+                                } else {
+                                    stat.textContent = displayValue;
+                                }
+                            }
+                        }, 40);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(heroSection);
+        statsObserver.observe(regionSection);
+
+        // Gallery hover effect enhancement
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.zIndex = '10';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Add shine effect to cards on hover
+        document.querySelectorAll('.mission-card, .program-card, .contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.backgroundImage = 'linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)';
+                this.style.backgroundSize = '200px 100%';
+                this.style.animation = 'shine 2s linear infinite';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.backgroundImage = '';
+                this.style.animation = '';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add dynamic color change to header on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('.main-header');
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.background = 'var(--color-dark)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

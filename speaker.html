@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirational Speaker - Transformasi Melalui Kata & Aksi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================== */
+        /* 0. VARIABLES & RESET               */
+        /* ================================== */
+        :root {
+            /* Calm & Elegant Color Palette */
+            --color-primary: #3498db; /* Soft blue - calming */
+            --color-secondary: #2c3e50; /* Dark blue - professional */
+            --color-accent: #7f8c8d; /* Gray blue - neutral */
+            --color-light: #f8f9fa; /* Off white */
+            --color-dark: #2c3e50; /* Dark blue gray */
+            --color-text: #34495e; /* Medium blue gray */
+            --color-highlight: #e74c3c; /* Soft red for emphasis */
+            --color-card-bg: rgba(255, 255, 255, 0.98);
+            --gradient-primary: linear-gradient(135deg, #3498db, #2980b9);
+            --gradient-secondary: linear-gradient(135deg, #2c3e50, #34495e);
+            --gradient-light: linear-gradient(135deg, #f8f9fa, #ecf0f1);
+            
+            /* Font Variables */
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Lora', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ================================== */
+        /* 1. ANIMATIONS CALM & ELEGANT       */
+        /* ================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes floatSoft {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.02); }
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+
+        @keyframes textReveal {
+            from { 
+                clip-path: inset(0 100% 0 0); 
+            }
+            to { 
+                clip-path: inset(0 0 0 0); 
+            }
+        }
+
+        @keyframes waveCalm {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-10%) translateY(-5px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        /* ================================== */
+        /* 2. HEADER & NAVIGASI               */
+        /* ================================== */
+        .main-header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            border-bottom: 1px solid rgba(52, 73, 94, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-header.scrolled {
+            box-shadow: 0 2px 20px rgba(52, 73, 94, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeIn 1s ease;
+        }
+
+        .logo::before {
+            content: '🎤';
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            font-family: var(--font-subheading);
+            font-weight: 500;
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--color-primary);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--color-primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        /* ================================== */
+        /* 3. HERO SECTION                    */
+        /* ================================== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 5% 50px;
+            background: var(--color-light);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(44, 62, 80, 0.05) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subheading {
+            font-family: var(--font-subheading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--color-secondary);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            position: relative;
+        }
+
+        .hero-title span {
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-primary);
+            opacity: 0.3;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--color-text);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: var(--font-subheading);
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Decorative elements */
+        .decorative-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .dot:nth-child(1) { top: 20%; left: 10%; }
+        .dot:nth-child(2) { top: 60%; left: 80%; }
+        .dot:nth-child(3) { top: 40%; left: 90%; }
+        .dot:nth-child(4) { top: 80%; left: 20%; }
+
+        /* Quote mark */
+        .quote-mark {
+            position: absolute;
+            font-family: var(--font-heading);
+            font-size: 10rem;
+            color: rgba(52, 152, 219, 0.05);
+            top: 50px;
+            left: 5%;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        /* ================================== */
+        /* 4. ABOUT SECTION                   */
+        /* ================================== */
+        .about-section {
+            padding: 120px 5%;
+            position: relative;
+            background: white;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--color-secondary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            border-radius: 3px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .profile-card {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--color-primary);
+        }
+
+        .profile-photo-wrapper {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 10px solid white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-name {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        .profile-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-family: var(--font-subheading);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--color-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .bio-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .bio-content p::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        .highlight-quote {
+            background: var(--color-light);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border-left: 4px solid var(--color-primary);
+            position: relative;
+        }
+
+        .highlight-quote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        /* ================================== */
+        /* 5. EXPERIENCE SECTION              */
+        /* ================================== */
+        .experience-section {
+            padding: 120px 5%;
+            position: relative;
+            background: var(--color-light);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--color-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .experience-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--color-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+            font-size: 1.8rem;
+        }
+
+        .experience-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .experience-card p {
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        /* ================================== */
+        /* 6. SPEAKING TOPICS                 */
+        /* ================================== */
+        .topics-section {
+            padding: 120px 5%;
+            background: white;
+        }
+
+        .topics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .topic-badge {
+            padding: 15px 30px;
+            background: white;
+            border: 1px solid var(--color-primary);
+            border-radius: 25px;
+            font-family: var(--font-subheading);
+            font-weight: 500;
+            color: var(--color-primary);
+            cursor: default;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--color-primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            z-index: -1;
+        }
+
+        .topic-badge:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .topic-badge:hover {
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        /* ================================== */
+        /* 7. TESTIMONIALS SECTION            */
+        /* ================================== */
+        .testimonials-section {
+            padding: 120px 5%;
+            background: var(--color-light);
+            position: relative;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-family: var(--font-subheading);
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+        }
+
+        /* ================================== */
+        /* 8. CONTACT SECTION                 */
+        /* ================================== */
+        .contact-section {
+            padding: 120px 5%;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--color-primary);
+            font-size: 2rem;
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-secondary);
+        }
+
+        .contact-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--color-secondary);
+        }
+
+        /* ================================== */
+        /* 9. BOOKING SECTION                 */
+        /* ================================== */
+        .booking-section {
+            padding: 120px 5%;
+            background: var(--color-light);
+            text-align: center;
+        }
+
+        .booking-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+        }
+
+        .booking-cta p {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-subheading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--color-secondary);
+            transform: translateY(-3px);
+            gap: 15px;
+        }
+
+        /* ================================== */
+        /* 10. FOOTER                         */
+        /* ================================== */
+        .main-footer {
+            background: var(--color-secondary);
+            color: white;
+            padding: 80px 5% 40px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-col-1 h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col-1 h3 span {
+            color: var(--color-primary);
+        }
+
+        .footer-motto {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .footer-col-2 h4, .footer-col-3 h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-col-2 ul {
+            list-style: none;
+        }
+
+        .footer-col-2 li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col-2 a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-subheading);
+        }
+
+        .footer-col-2 a:hover {
+            color: var(--color-primary);
+            padding-left: 10px;
+        }
+
+        .footer-col-3 p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ================================== */
+        /* 11. RESPONSIVE DESIGN              */
+        /* ================================== */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .profile-card { order: -1; }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            .hero-title { font-size: 2.5rem; }
+            .hero-stats { flex-wrap: wrap; justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .footer-social { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-description { font-size: 1rem; }
+            .section-title { font-size: 2rem; margin-bottom: 50px; }
+            .profile-name { font-size: 1.8rem; }
+            .booking-cta { padding: 40px 20px; }
+            .booking-cta h2 { font-size: 2rem; }
+            .stat-item { min-width: 120px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.8rem; }
+            .hero-subheading { font-size: 1rem; }
+            .profile-card, .experience-card, .contact-card { padding: 25px; }
+            .topic-badge { padding: 12px 25px; }
+            .cta-button { padding: 15px 25px; }
+        }
+
+        /* ================================== */
+        /* 12. CUSTOM SCROLLBAR               */
+        /* ================================== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="nav-content">
+            <h1 class="logo">Alex Sterling</h1>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#topics">Topik</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="decorative-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="quote-mark">"</div>
+        <div class="hero-content">
+            <p class="hero-subheading">Inspirational Speaker & Storyteller</p>
+            <h1 class="hero-title">
+                Memimpin Perubahan Melalui<br>
+                <span>Kekuatan Kata & Cerita</span>
+            </h1>
+            <p class="hero-description">
+                Sebagai pembicara publik dengan pengalaman 15+ tahun, saya membantu organisasi dan individu menemukan suara mereka, membangun koneksi yang bermakna, dan menginspirasi tindakan nyata melalui cerita yang powerful.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Acara Sukses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Perusahaan</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Negara</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-grid">
+            <div class="profile-card">
+                <div class="profile-photo-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Alex Sterling - Public Speaker" class="profile-photo">
+                </div>
+                <h3 class="profile-name">Alex Sterling</h3>
+                <p class="profile-title">International Speaker & Communication Expert</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="bio-content">
+                <p>Dengan latar belakang jurnalistik dan 15 tahun pengalaman di panggung internasional, saya telah membantu ribuan pemimpin dan organisasi menemukan cerita mereka dan menyampaikannya dengan dampak maksimal.</p>
+                <p>Pendekatan saya menggabungkan prinsip-prinsip komunikasi efektif, psikologi audiens, dan teknik bercerita yang telah terbukti untuk menciptakan pengalaman belajar yang transformatif.</p>
+                <p>Saya telah berbicara di berbagai forum bergengsi termasuk TEDx, World Economic Forum, dan United Nations Leadership Summit, dengan klien dari Fortune 500 companies hingga startups yang sedang berkembang.</p>
+                <div class="highlight-quote">
+                    <p>"Kata-kata yang tepat, disampaikan dengan cara yang tepat, pada waktu yang tepat, dapat mengubah dunia."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <h2 class="section-title">Pengalaman & Keahlian</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3>Public Speaking</h3>
+                <p>Pengalaman berbicara di lebih dari 500 acara internasional, termasuk konferensi, seminar, dan workshop untuk audiens dari 50 hingga 5,000 orang.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Leadership Training</h3>
+                <p>Program pelatihan kepemimpinan yang disesuaikan untuk eksekutif dan manajer, fokus pada komunikasi efektif dan influence.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Storytelling Workshop</h3>
+                <p>Workshop interaktif tentang seni bercerita untuk bisnis, membantu organisasi menciptakan narasi yang powerful untuk brand mereka.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Executive Coaching</h3>
+                <p>Coaching one-on-one untuk eksekutif yang ingin meningkatkan kemampuan presentasi dan komunikasi publik mereka.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="topics-section">
+        <h2 class="section-title">Topik Pembicaraan</h2>
+        <div class="topics-container">
+            <span class="topic-badge">Leadership Communication</span>
+            <span class="topic-badge">The Power of Storytelling</span>
+            <span class="topic-badge">Building Executive Presence</span>
+            <span class="topic-badge">Authentic Leadership</span>
+            <span class="topic-badge">Digital Communication</span>
+            <span class="topic-badge">Crisis Communication</span>
+            <span class="topic-badge">Influencing Skills</span>
+            <span class="topic-badge">Team Motivation</span>
+            <span class="topic-badge">Change Management</span>
+            <span class="topic-badge">Innovation & Creativity</span>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title">Testimoni Klien</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Alex membawa energi dan keahlian yang luar biasa ke setiap sesi. Presentasinya tentang storytelling mengubah cara tim kami berkomunikasi dengan klien. Rekomendasi tertinggi!"
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>CEO, Tech Innovations Inc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:alex@alexsterling.com" class="contact-link">alex@alexsterling.com</a>
+                <p>Untuk inquiry speaking dan workshop</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Telepon</h3>
+                <a href="tel:+628123456789" class="contact-link">+62 812-3456-789</a>
+                <p>Senin - Jumat, 09:00 - 17:00</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Booking</h3>
+                <a href="#booking" class="contact-link">Book a Session</a>
+                <p>Konsultasi awal 30 menit gratis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="booking-cta">
+            <h2>Siap Menginspirasi Tim Anda?</h2>
+            <p>Mari berdiskusi tentang bagaimana saya dapat membantu organisasi Anda mencapai tujuan komunikasi dan kepemimpinan melalui pembicaraan yang powerful dan workshop yang transformatif.</p>
+            <a href="mailto:booking@alexsterling.com" class="cta-button">
+                <span>Jadwalkan Konsultasi</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col-1">
+                <h3>Alex <span>Sterling</span></h3>
+                <p class="footer-motto">"Mengubah kata menjadi aksi, dan ide menjadi realitas melalui kekuatan komunikasi yang autentik."</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#experience">Keynote Speaking</a></li>
+                    <li><a href="#experience">Workshop & Training</a></li>
+                    <li><a href="#experience">Executive Coaching</a></li>
+                    <li><a href="#topics">Custom Programs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-3">
+                <h4>Legal</h4>
+                <p>© 2024 Alex Sterling. All Rights Reserved.</p>
+                <p>Professional Speakers Association Member</p>
+                <p>International Coaching Federation Certified</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Inspiring Change Through Authentic Communication | Leadership Development | Transformational Speaking</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.innerHTML = document.querySelector('.nav-links').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.nav-toggle').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.experience-card, .topic-badge, .contact-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+
+        // Set initial styles for animated elements
+        document.querySelectorAll('.experience-card, .topic-badge, .contact-card').forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Initial check
+        animateOnScroll();
+
+        // Testimonial slider
+        const testimonials = [
+            {
+                text: "Alex membawa energi dan keahlian yang luar biasa ke setiap sesi. Presentasinya tentang storytelling mengubah cara tim kami berkomunikasi dengan klien. Rekomendasi tertinggi!",
+                name: "Sarah Johnson",
+                title: "CEO, Tech Innovations Inc.",
+                image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                text: "Workshop leadership communication dengan Alex adalah investasi terbaik yang kami lakukan tahun ini. Tim kepemimpinan kami sekarang lebih percaya diri dan efektif dalam presentasi.",
+                name: "Michael Chen",
+                title: "COO, Global Solutions Ltd.",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                text: "Sebagai pembicara keynote di konferensi tahunan kami, Alex memukau audiens 2,000 orang. Pesannya relevan, penyampaiannya menarik, dan dampaknya bertahan lama.",
+                name: "Emma Rodriguez",
+                title: "Event Director, Leadership Summit",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+            }
+        ];
+
+        let currentTestimonial = 0;
+        const testimonialCard = document.querySelector('.testimonial-card');
+
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            testimonialCard.innerHTML = `
+                <p class="testimonial-text">${testimonial.text}</p>
+                <div class="testimonial-author">
+                    <img src="${testimonial.image}" alt="${testimonial.name}" class="author-avatar">
+                    <div class="author-info">
+                        <h4>${testimonial.name}</h4>
+                        <p>${testimonial.title}</p>
+                    </div>
+                </div>
+            `;
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+
+        // Change testimonial every 5 seconds
+        setInterval(updateTestimonial, 5000);
+        
+        // Initialize first testimonial
+        updateTestimonial();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add subtle floating animation to hero elements
+        const heroElements = document.querySelectorAll('.hero-subheading, .hero-title, .hero-description');
+        heroElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
